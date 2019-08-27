@@ -45,3 +45,8 @@
 - Bạn có thể sử dụng <a href="https://developer.android.com/studio/command-line/adb">Android Debug Bridge</a> cùng với **activity manager (am)** để kiểm tra intent filter URI. Bạn có thể run lệnh trong command với device or emulator.
 - Cú pháp chung: **$ adb shell am start -W -a android.intent.action.VIEW -d <URI> <PACKAGE>**
 - Ví dụ: **adb shell am start -W -a android.intent.action.VIEW -d "example://gizmos" com.example.deeplinksample**
+
+## Tạo Android App Link
+1. Tạo Deeplink: Như trên
+2. Xác minh cho Deeplink: Cấu hình ứng dụng để yêu cầu để xác minh các app link. Sau đó, publish file **Digital Asset Links JSON** trên website của bạn để xác minh quyền sở hữu thông qua <a href="https://support.google.com/webmasters/answer/9008080">Google Search Console</a>.<a href="https://developer.android.com/training/app-links/verify-site-associations.html">Verify Android App Links</a>
+
