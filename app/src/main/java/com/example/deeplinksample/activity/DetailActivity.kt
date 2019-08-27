@@ -1,9 +1,10 @@
-package com.example.deeplinksample
+package com.example.deeplinksample.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.deeplinksample.R
+import kotlinx.android.synthetic.main.activity_detail.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.debug
 
 class DetailActivity : AppCompatActivity(), AnkoLogger {
 
@@ -17,6 +18,7 @@ class DetailActivity : AppCompatActivity(), AnkoLogger {
         val action = intent?.action
         val data = intent?.data
 
-        debug { "$action, $data" }
+        text_action?.text = action
+        text_uri?.text = data.toString()
     }
 }

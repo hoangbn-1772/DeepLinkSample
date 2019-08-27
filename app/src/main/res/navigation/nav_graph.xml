@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="com.example.deeplinksample.fragment.MainFragment"
+              android:label="MainFragment">
+
+        <action android:id="@+id/action_mainFragment_to_dashboardFragment"
+                app:destination="@id/dashboardFragment"/>
+
+        <deepLink android:id="@+id/deepLink2"
+                  android:autoVerify="true"
+                  app:uri="https://github.com/hoangPTIT"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/dashboardFragment"
+              android:name="com.example.deeplinksample.fragment.DashboardFragment"
+              android:label="DashboardFragment">
+
+        <!--To receive data incoming-->
+        <argument android:name="username"
+                  app:argType="string"/>
+
+        <action android:id="@+id/action_dashboardFragment_to_mainFragment"
+                app:destination="@id/mainFragment"/>
+
+        <deepLink android:id="@+id/deepLink"
+                  app:uri="https://github.com/hoangPTIT/{username}/{address}"/>
+
+    </fragment>
+
+</navigation>

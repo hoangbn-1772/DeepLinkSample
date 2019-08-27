@@ -12,7 +12,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
+
+            <nav-graph android:value="@navigation/nav_graph"/>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -20,7 +23,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DetailActivity">
+        <activity android:name=".activity.DetailActivity">
+
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
 

@@ -50,3 +50,26 @@
 1. Tạo Deeplink: Như trên
 2. Xác minh cho Deeplink: Cấu hình ứng dụng để yêu cầu để xác minh các app link. Sau đó, publish file **Digital Asset Links JSON** trên website của bạn để xác minh quyền sở hữu thông qua <a href="https://support.google.com/webmasters/answer/9008080">Google Search Console</a>.<a href="https://developer.android.com/training/app-links/verify-site-associations.html">Verify Android App Links</a>
 
+- Ngoài ra, ta có thể sử dụng <a href="https://developer.android.com/studio/write/app-link-indexing.html">Android App Links Assistant</a> là một công cụ trong Android để tạo Android App Links
+
+### Verify Android App Link
+- Để xác minh chủ sở hữu cho ứng dụng và website của bạn, làm theo các bước sau:
+1. Request app links verification
+- Bật xác minh liên kết trong app bằng cách thiết lập **android:autoVerify="true"** như đoạn code dưới đây:
+- Hệ thống sẽ kiểm tra các thẻ: action, category, data
+- Với mỗi host được tìm thấy trong intent-filter. Android sẽ truy vấn các trang web tương ứng cho file Digital Asset Links tại **https://hostname/.well-known/assetlinks.json**.
+- Chú ý: Chỉ khi nào hệ thống tìm thấy file <a href="https://developers.google.com/digital-asset-links/v1/getting-started">Digital Asset Links</a> phù hợp cho tất cả các **host** trong manifest thì nó mới thiết lập ứng dụng của bạn làm trình xử lý mặc định.
+
+2. Declare website associations.
+- File **Digital Asset Links** phải được publish trên website của bạn để cho biết các ứng dụng Android được liên kết với website và xác minh URL intent của ứng dụng.
+
+# Deeplink với Navigation Component.
+- Tìm hiểu về Navigation Component: <a href="https://developer.android.com/guide/navigation/navigation-getting-started">tại đây</a>
+
+1. Thêm Deeplink vào trong Destination: Có 2 cách
+- Explicit deep link (code): Tạo ra một pendingIntent chuyển đến một màn hình cụ thể trong app. Deeplink hiển thị như một notification, tiện tích,...
+- Implicit deep link (Sử dụng navigation editor): Là một URI chỉ định đến destination trong app.
+
+2. Định nghĩa nav-graph trong manifest
+3. Lấy dữ liệu từ Deeplink
+

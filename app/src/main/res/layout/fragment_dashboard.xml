@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/dp_8"
-    tools:context=".activity.DetailActivity">
+    android:orientation="vertical"
+    android:padding="@dimen/dp_8">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/detail_activity"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_action"
+        android:id="@+id/text_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_32"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_uri"
+        android:id="@+id/text_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_action"
-        android:layout_marginTop="@dimen/dp_8"/>
+        android:layout_below="@id/text_username"
+        android:layout_marginTop="@dimen/dp_32"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/back"/>
 
 </RelativeLayout>

@@ -2,4 +2,7 @@
     <string name="app_name">DeeplinkSample</string>
 
     <string name="detail_activity">Detail</string>
+    <string name="goto_dashboard">Dashboard</string>
+    <string name="back">Back</string>
+    <string name="notification">Notification</string>
 </resources>
