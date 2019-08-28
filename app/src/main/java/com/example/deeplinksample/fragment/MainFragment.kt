@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import androidx.core.app.NotificationCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.deeplinksample.R

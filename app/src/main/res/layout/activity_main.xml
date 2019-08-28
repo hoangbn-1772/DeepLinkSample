@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/dp_8"
     tools:context=".activity.MainActivity">
 
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_goto_detail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph"/>
+        android:layout_height="wrap_content"
+        android:text="@string/detail_activity"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_navigation_deeplink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_goto_detail"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="@string/navigation"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_firebase_dynamic_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_navigation_deeplink"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="@string/firebase_dynamic_link"/>
 
 </RelativeLayout>

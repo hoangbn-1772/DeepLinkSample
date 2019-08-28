@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.deeplinksample">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,8 +15,6 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity android:name=".activity.MainActivity">
-
-            <nav-graph android:value="@navigation/nav_graph"/>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -52,6 +52,23 @@
                     android:scheme="example"/>
             </intent-filter>
         </activity>
-    </application>
 
+        <activity android:name="com.example.deeplinksample.activity.NavigationDeepLinkActivity">
+            <nav-graph android:value="@navigation/nav_graph"/>
+        </activity>
+
+        <activity android:name="com.example.deeplinksample.activity.FirebaseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <!--https://github.com/hoangbn-1772/DeepLinkSample-->
+                <data
+                    android:host="github.com"
+                    android:pathPrefix="/hoangbn-1772/DeepLinkSample"
+                    android:scheme="https"/>
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

@@ -5,4 +5,6 @@
     <string name="goto_dashboard">Dashboard</string>
     <string name="back">Back</string>
     <string name="notification">Notification</string>
+    <string name="navigation">Notification Deeplink</string>
+    <string name="firebase_dynamic_link">Firebase Dynamic Link</string>
 </resources>

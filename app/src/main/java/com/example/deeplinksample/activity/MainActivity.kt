@@ -1,23 +1,34 @@
 package com.example.deeplinksample.activity
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Context
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import androidx.core.app.NotificationCompat
-import androidx.navigation.Navigation
+import androidx.appcompat.app.AppCompatActivity
 import com.example.deeplinksample.R
+import com.google.firebase.FirebaseApp
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.singleTop
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        FirebaseApp.initializeApp(this)
+
+        btn_goto_detail?.setOnClickListener {
+            startActivity(intentFor<DetailActivity>().apply {
+                action = "ACTION"
+                data = Uri.parse("https://github.com/hoangbn-1772")
+            })
+        }
+
+        btn_navigation_deeplink?.setOnClickListener {
+            startActivity(intentFor<NavigationDeepLinkActivity>())
+        }
+
+        btn_firebase_dynamic_link?.setOnClickListener {
+            startActivity(intentFor<FirebaseActivity>())
+        }
     }
 }

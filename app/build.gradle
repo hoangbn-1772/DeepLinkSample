@@ -40,6 +40,7 @@ dependencies {
 
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
 
+    // Navigation Component
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
@@ -47,4 +48,8 @@ dependencies {
 
     // To use bundleOf()
     implementation 'androidx.core:core-ktx:1.2.0-alpha03'
+
+    // Dynamic Link Firebase
+    implementation 'com.google.firebase:firebase-dynamic-links:19.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
 }
