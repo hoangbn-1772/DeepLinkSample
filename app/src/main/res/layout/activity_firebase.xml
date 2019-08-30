@@ -19,4 +19,11 @@
         android:layout_below="@id/text_link"
         android:layout_marginTop="@dimen/dp_8"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_share_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/share_link"/>
+
 </RelativeLayout>

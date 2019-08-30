@@ -13,8 +13,7 @@
   + Cho phép User chọn một ứng dụng từ dialog.
 
 ### **Android App link**
-- Là một deeplink dựa trên website URL đã được xác minh.
-- Cho phép một ứng dụng chỉ định chính nó làm trình xử lý mặc định cho liên kết. **Nhưng nó chỉ hoạt động từ Android 6.0 (API level 23) trở lên**.
+- Là một HTTP URL Deeplink, cho phép một ứng dụng chỉ định chính nó làm trình xử lý mặc định cho liên kết. **Nhưng nó chỉ hoạt động từ Android 6.0 (API level 23) trở lên**.
 - Nếu người dùng không muốn app trở thành trình xử lý mặc định, họ có thể cài đặt trong device system setting.
 - Một số lợi ích:
   + An toàn và cụ thể: Android App Link sử dụng HTTP URLs liên kết đến website domain mà bạn sở hữu, vì thế không có app nào khác có thể sử dụng liên kết của bạn. Bạn phải xác minh quyền sở hữu domain.
@@ -56,16 +55,21 @@
 
 - Ngoài ra, ta có thể sử dụng <a href="https://developer.android.com/studio/write/app-link-indexing.html">Android App Links Assistant</a> là một công cụ trong Android để tạo Android App Links
 
-### Verify Android App Link
-- Để xác minh chủ sở hữu cho ứng dụng và website của bạn, làm theo các bước sau:
-1. Request app links verification
-- Bật xác minh liên kết trong app bằng cách thiết lập **android:autoVerify="true"** như đoạn code dưới đây:
-- Hệ thống sẽ kiểm tra các thẻ: action, category, data
-- Với mỗi host được tìm thấy trong intent-filter. Android sẽ truy vấn các trang web tương ứng cho file Digital Asset Links tại **https://hostname/.well-known/assetlinks.json**.
-- Chú ý: Chỉ khi nào hệ thống tìm thấy file <a href="https://developers.google.com/digital-asset-links/v1/getting-started">Digital Asset Links</a> phù hợp cho tất cả các **host** trong manifest thì nó mới thiết lập ứng dụng của bạn làm trình xử lý mặc định.
-
-2. Declare website associations.
-- File **Digital Asset Links** phải được publish trên website của bạn để cho biết các ứng dụng Android được liên kết với website và xác minh URL intent của ứng dụng.
+### Android App Links Assistant.
+- Để add Android App Link vào project ta làm theo các bước
+1. Create intent filters in your manifest.
+- Vào: Tools -> App Links Assistant
+- Click Open Mapping Editor, chọn Add và điền thông tin vào form.
+- Sau khi bấm OK thì intent-filter sẽ được generate trong manifest.
+- Để verify URL có hoạt động đúng, điền URL vào trường **Check URL Mapping** và click **Check Mapping**.
+<img src="images/verify_url_mapping.png"/>
+<img src="images/add_url_detail.png"/>
+2. Xử lý liên kết gửi đến
+- 
+3. Liên kết ứng dụng với website cùng với <a href="https://developers.google.com/digital-asset-links/v1/getting-started">Digital Asset Links</a>
+- Để tạo <a href="https://developer.android.com/training/app-links/verify-site-associations.html#web-assoc">Digital Asset Links</a>
+- Clcik **Open Digital Asset Links File Generator**:
+<img src="images/open_degital_asset_links.png"/>
 
 # Deeplink với Navigation Component.
 - Tìm hiểu về Navigation Component: <a href="https://developer.android.com/guide/navigation/navigation-getting-started">Navigation Component</a>
@@ -86,7 +90,7 @@
 3. Lấy dữ liệu từ Deeplink
 <img src="images/navigation_get_data.png"/>
 
-# Firebase Dynamic links
+# Firebase Dynamic links (Deferred Deep Link)
 - Dynamic Link là một **deeplink** trong ứng dụng của bạn cho dù ứng dụng có được cài đặt hay không. Nó hoạt động theo cách bạn muốn, trên nhiều nền tảng.
 - **Dynamic Links** mang đến trải nghiệm tuyệt vời nhất tới người dùng. Khi user mở một **Dynamic Links** bằng iOS or Android or Desktop Browser người dùng sẽ chuyển đến nội dung được liên kết trong ứng dụng, nếu ứng dụng chưa được cài đặt, user sẽ được chuyển đến Play Store or App Store để cài đặt app (do ta cấu hình).
 
@@ -108,15 +112,17 @@
 
 2. Create Dynamic Links (Sử dụng <a href="https://console.firebase.google.com/project/_/durablelinks/links/">Firebase console</a>)
 - Firebase Console → Select your project →  Dynamic links (Left side panel, under Grow) → Get Started: Sau đó điền domain của bạn.
+<img src="images/create_domain.png"/>
+
 - Click "New Dynamic link", điền các thông tin trong hộp thoại:
 <img src="images/step_2_dynamic_link.png"/>
 
 <img src="images/step_4.png"/>
 
-- Flow:
+- Debugging Dynamic Links (previve page flowchart):
 <img src="images/flow_firebase_dynamic_link.png"/>
 
-- **Recommended**: Để ngăn chặn các bên trái phép tạo Dynamic Links chuyển hướng từ domain của bạn đến các website mà bạn không kiểm soát, bạn nên liệt kê danh sách các URL mà Dynamin Link của bạn có thể chuyển hướng đến. See <a href="https://support.google.com/firebase/answer/9021429">Whitelist URL patterns.</a>
+- **Recommended**: Để ngăn chặn các bên trái phép tạo Dynamic Links chuyển hướng từ domain của bạn đến các website mà bạn không kiểm soát, bạn nên liệt kê danh sách các URL mà Dynamic Link của bạn có thể chuyển hướng đến. See <a href="https://support.google.com/firebase/answer/9021429">Whitelist URL patterns.</a>
 
 3. Handle Dynamic Links in your app
 - Manifest:

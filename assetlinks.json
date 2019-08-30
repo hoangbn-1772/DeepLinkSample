@@ -1,0 +1,25 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.deeplinksample",
+    "sha256_cert_fingerprints":
+    ["8C:60:A3:C6:E0:18:A1:DF:13:22:C6:D7:94:D7:9A:50:E7:7A:A0:FA:0F:99:DA:60:9D:7D:2A:49:81:49:3E:8E"]
+  }
+},
+{
+  "relation": ["delegate_permission/common.get_login_creds"],
+  "target": {
+    "namespace": "web",
+    "site": "https://github.com"
+  }
+},
+{
+  "relation": ["delegate_permission/common.get_login_creds"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.deeplinksample",
+    "sha256_cert_fingerprints":
+    ["8C:60:A3:C6:E0:18:A1:DF:13:22:C6:D7:94:D7:9A:50:E7:7A:A0:FA:0F:99:DA:60:9D:7D:2A:49:81:49:3E:8E"]
+  }
+}]

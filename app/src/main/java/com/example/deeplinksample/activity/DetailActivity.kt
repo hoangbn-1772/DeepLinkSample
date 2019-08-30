@@ -1,5 +1,6 @@
 package com.example.deeplinksample.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.deeplinksample.R
@@ -11,14 +12,23 @@ class DetailActivity : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        getData()
+        handleIntent(intent)
     }
 
-    private fun getData() {
-        val action = intent?.action
-        val data = intent?.data
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        intent?.let { handleIntent(it) }
+    }
 
-        text_action?.text = action
-        text_uri?.text = data.toString()
+    private fun handleIntent(intent: Intent) {
+        val appLinkAction = intent.action
+        val appLinkData = intent.data
+        if (Intent.ACTION_VIEW == appLinkAction) {
+            appLinkData?.lastPathSegment?.also {
+                text_uri?.text = it
+            }
+        }
+
+        text_action?.text = appLinkAction
     }
 }

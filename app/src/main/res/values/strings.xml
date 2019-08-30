@@ -7,4 +7,8 @@
     <string name="notification">Notification</string>
     <string name="navigation">Notification Deeplink</string>
     <string name="firebase_dynamic_link">Firebase Dynamic Link</string>
+    <string name="share_link">Share Link</string>
+    <string name="asset_statements" translatable="false">[{ \"include\":
+        \"https://github.com/.well-known/assetlinks.json\" }]
+    </string>
 </resources>

@@ -44,4 +44,21 @@ object DynamicLinkProvider {
                 // error create short link
             }
     }
+
+    /**
+     * Invite Users to Your app
+     */
+    fun generateContentLink(): Uri {
+        val baseUrl = Uri.parse("https://github.com/hoangbn-1772/DeepLinkSample")
+        val domain = "https://buihoangbg.page.link"
+
+        val link = FirebaseDynamicLinks.getInstance()
+            .createDynamicLink()
+            .setLink(baseUrl)
+            .setDomainUriPrefix(domain)
+            .setAndroidParameters(DynamicLink.AndroidParameters.Builder("com.example.deeplinksample").build())
+            .buildDynamicLink()
+
+        return link.uri
+    }
 }

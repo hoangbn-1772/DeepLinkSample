@@ -14,6 +14,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
+        <!--MainActivity-->
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
         <activity android:name=".activity.MainActivity">
 
             <intent-filter>
@@ -23,41 +25,44 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.DetailActivity">
+        <!--Detail Activity-->
+        <activity android:name=".activity.DetailActivity"
+                  android:launchMode="singleTask">
+
+            <tools:validation testUrl="https://github.com/hoangbn-1772"/>
 
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
-
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-
-                <!-- Accepts URIs that begin with "https://github.com/hoangbn-1772” -->
                 <data
+                    android:scheme="https"
                     android:host="github.com"
-                    android:pathPrefix="/hoangbn-1772"
-                    android:scheme="https"/>
-
-                <data android:scheme="http"/>
+                    android:pathPrefix="/hoangbn-1772"/>
             </intent-filter>
 
-            <intent-filter android:autoVerify="true">
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
-
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-
-                <!-- Accepts URIs that begin with "example://gizmos” -->
                 <data
-                    android:host="gizmos"
-                    android:scheme="example"/>
+                    android:scheme="http"
+                    android:host="github.com"
+                    android:pathPattern="/hoangbn-1772"/>
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.deeplinksample.activity.NavigationDeepLinkActivity">
+        <!--Navigation With Deeplink-->
+        <activity
+            android:name="com.example.deeplinksample.activity.NavigationDeepLinkActivity"
+            android:launchMode="singleTask">
+
             <nav-graph android:value="@navigation/nav_graph"/>
         </activity>
 
-        <activity android:name="com.example.deeplinksample.activity.FirebaseActivity">
+        <!--Firebase with Deeplink-->
+        <activity android:name="com.example.deeplinksample.activity.FirebaseActivity"
+                  android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
